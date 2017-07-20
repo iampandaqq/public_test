@@ -1,28 +1,5 @@
 <?php
-if(isset($_POST))
-{
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";
-	$secret="6Lcj4BYUAAAAAK_5zRJrn0mlQ2fGxFlq056NoDVA";
-	if(isset($_POST["g-recaptcha-response"]))
-	{
-		$link="https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$_POST["g-recaptcha-response"]."&remoteip=".$_SERVER["HTTP_X_FORWARDED_FOR"];
-	echo $link;	
-	$response = file_get_contents($link);
-	
-	$response = json_decode($response, true);
-	echo "<pre>";
-	print_r($response);
-	echo "</pre>";
-	if($response["success"] === true){
-		echo "success";
-	}else{
-		echo "check failed!";
-	}
-	}
-}
-?>
+
 <!doctype html>
 <html>
 <head>
